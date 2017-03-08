@@ -68,17 +68,16 @@ def delete_plane(id):
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit_plane(id):
     if request.method == 'GET':
-        return render_template('edit_plane.html')
+        plane = Plane.query.filter_by(id=id).first()
+        return render_template('edit_plane.html', plane = plane)
     else:
         plane = Plane.query.filter_by(id=id).first()
         plane.title = request.form['title']
         plane.body = request.form['body']
         plane.image_url = request.form['image_url']
-        db.session.update(plane)
         db.session.commit()
-        return render_template('edit_plane.html')
 
-        # return redirect('/jets')
+        return redirect('/jets')
 
 if __name__ == "__main__":
     app.run(debug=True)

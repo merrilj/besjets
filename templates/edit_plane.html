@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
     <link type="text/css" rel="stylesheet" href="{{  url_for('static', filename='stylesheets/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+    <script src="../static/js/main.js"></script>
     <title>Plane Listing App</title>
   </head>
   <body>
@@ -24,16 +29,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     </div>
     <div class="form-width container">
-      <h3 class="form-header">Edit Plane</h3>
+      <h3 class="form-header">Edit {{ plane.title }}</h3>
       <form action="/edit/{{ plane.id }}" method="post">
         <div class="form-text form-group">
-          <label for="title">Aircraft</label>
-          <input type="text" name="title" class="form-control" id="title" placeholder="Enter aircraft type here">
-          <label for="body">Description</label>
-          <textarea class="form-control" name="body" id="body" placeholder="Enter aircraft description here"rows="3"></textarea>
-          <label for="image_url">Aircraft Image</label>
-          <input type="text" name="image_url" class="form-control" id="image_url" placeholder="Paste image URL here">
-          <input type="submit" class="btn btn-primary">
+          <div class="pad"><label for="title">Aircraft</label>
+          <input type="text" name="title" class="form-control" id="title" value="{{ plane.title }}"></div>
+          <div class="pad"><label for="body">Description</label>
+          <textarea class="form-control" name="body" id="body" rows="3">{{ plane.body }}</textarea></div>
+          <div class="pad"><label for="image_url">Aircraft Image</label>
+          <input type="text" name="image_url" class="form-control" id="image_url" value="{{ plane.image_url }}"></div>
+          <div class="pad"><input type="submit" value="Update Plane" class="btn btn-success">
+          <a href="/jets" id="all-planes" class="btn btn-info">All Planes</a>
+          </div>
         </div>
       </form>
     </div>
