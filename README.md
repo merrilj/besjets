@@ -12,5 +12,6 @@
   - JavaScript
   - jQuery
 
+
   ![alt tag](./static/stylesheets/images/landing-page.png)
   ![alt tag](./static/stylesheets/images/all-planes.png)
