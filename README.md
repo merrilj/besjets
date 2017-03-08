@@ -10,6 +10,7 @@
   - SQLite
   - SQLAlchemy
   - jQuery
+  - JavaScript
 
 
   ![alt tag](./static/stylesheets/images/landing-page.png)
