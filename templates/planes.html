@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}"
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
     <title>Plane Listing App</title>
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav id="header" class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -16,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ui-sref="app.posts">MJ Parking Lot</a>
+          <a class="navbar-brand" href="/">MJ Parking Lot</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,23 +26,34 @@
   </nav>
 
     <div class="container">
-      <div class="row">
+      <div id="tit" class="row">
         {% for item in planes %}
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <img src="{{ item.image_url }}" alt="plane image url">
             <div class="caption">
               <h3>{{ item.title }}</h3>
-              <p>{{ item.body }}</p>
-              <p>
-                <form action="" method="post">
-                <button id="delete_concert_btn" class="btn btn-danger" href="/">Delete</button>
-                </form>
-                <a href="#" class="btn btn-success" role="button">Edit</a>
-              </p>
+              <p id="full-text">{{ item.body }}</p>
+              <div id="form-wrapper">
+                <div id="form1">
+                  <form action="/delete/{{ item.id }}" method="post">
+                    <button id="delete-btn" class="btn btn-danger" href="/">Delete</button>
+                  </form>
+                </div>
+                <div id="form2">
+                  <form action="/edit/{{ item.id }}" method="post">
+                    <button id="edit-btn" class="btn btn-success" href="/">Edit</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
+      <div id="add-btn">
+        <a href="/jets/add" class="btn btn-primary btn-lg" role="button">Add a Plane</a>
+      </div>
     </div>
+  </body>
+  </html>

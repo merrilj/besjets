@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
-from jinja2 import Template
 import os
 
 app = Flask(__name__)
@@ -18,12 +17,13 @@ class Plane(db.Model):
     def __repr__(self):
         return self.title
 
+
 @app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/jets/add', methods=['GET', 'POST'])
 
+@app.route('/jets/add', methods=['GET', 'POST'])
 def create_plane():
     if request.method == 'GET':
         return render_template('add_plane.html')
@@ -37,17 +37,48 @@ def create_plane():
         db.session.add(plane)
         db.session.commit()
 
-        return redirect('/')
+        return redirect('/jets')
 
-def delete_plane():
-    db.session.delete(plane)
-    db.session.commit()
-    return redirect('/')
 
 @app.route('/jets', methods=['GET'])
 def show_planes():
     planes = Plane.query.all()
     return render_template('planes.html', planes = planes)
+
+
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete_plane(id):
+    if request.method == 'POST':
+        plane = Plane.query.filter_by(id=id).first()
+        print plane
+        db.session.delete(plane)
+        db.session.commit()
+        return redirect('/jets')
+
+
+# @app.route('/edit/<int:id>', methods=['POST'])
+# def edit_plane(id):
+    # plane = Plane.query.filter_by(id=id).first()
+    # plane.title = request.form['title']
+    # plane.body = request.form['body']
+    # plane.image_url = request.form['image_url']
+    # db.session.commit()
+    # return render_template('edit_plane.html')
+
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_plane(id):
+    if request.method == 'GET':
+        return render_template('edit_plane.html')
+    else:
+        plane = Plane.query.filter_by(id=id).first()
+        plane.title = request.form['title']
+        plane.body = request.form['body']
+        plane.image_url = request.form['image_url']
+        db.session.update(plane)
+        db.session.commit()
+        return render_template('edit_plane.html')
+
+        # return redirect('/jets')
 
 if __name__ == "__main__":
     app.run(debug=True)

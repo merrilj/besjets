@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Plane Listing App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{  url_for('static', filename='stylesheets/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+    <title>Plane Listing App</title>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -24,16 +24,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     </div>
     <div class="form-width container">
-      <h3 class="form-header">Add Aircraft</h3>
-      <form action="/jets/add" method="post">
+      <h3 class="form-header">Edit Plane</h3>
+      <form action="/edit/{{ plane.id }}" method="post">
         <div class="form-text form-group">
-          <div class="pad"><label for="title">Aircraft</label>
-          <input type="text" name="title" class="form-control" id="title" placeholder="Enter aircraft type here"></div>
-          <div class="pad"><label for="body">Description</label>
-          <textarea class="form-control" name="body" id="body" placeholder="Enter aircraft description here"rows="3"></textarea></div>
-          <div class="pad"><label for="image_url">Aircraft Image</label>
-          <input type="text" name="image_url" class="form-control" id="image_url" placeholder="Paste image URL here"></div>
-          <div class="pad"><input type="submit" value="Add Plane" class="btn btn-info"></div>
+          <label for="title">Aircraft</label>
+          <input type="text" name="title" class="form-control" id="title" placeholder="Enter aircraft type here">
+          <label for="body">Description</label>
+          <textarea class="form-control" name="body" id="body" placeholder="Enter aircraft description here"rows="3"></textarea>
+          <label for="image_url">Aircraft Image</label>
+          <input type="text" name="image_url" class="form-control" id="image_url" placeholder="Paste image URL here">
+          <input type="submit" class="btn btn-primary">
         </div>
       </form>
     </div>

@@ -1,3 +1,64 @@
-#hmm {
-  background-color: red;
+body {
+  background-image: url("http://wallpapercave.com/wp/eDExR4Y.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  opacity: 0.9;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+#add-btn {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3em;
+}
+
+#form-wrapper {
+  /*width: 70%;*/
+  margin: 0 auto;
+  display: flex;
+}
+
+.form-width {
+  width: 60rem;
+  margin: auto;
+}
+
+#home-grid {
+  text-align: center;
+  width: 35rem;
+  margin: auto;
+  margin-top: 15rem;
+}
+
+#full-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#form1 {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#form2 {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-header {
+  text-align: center;
+  color: white;
+}
+
+.form-text {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.pad {
+  padding: 0.8em;
 }
