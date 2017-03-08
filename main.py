@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
+from jinja2 import Template
 import os
 
 app = Flask(__name__)
@@ -13,6 +14,9 @@ class Plane(db.Model):
     title = db.Column(db.String(255))
     body = db.Column(db.Text)
     image_url = db.Column(db.String(255))
+
+    def __repr__(self):
+        return self.title
 
 @app.route('/')
 def home():
@@ -38,6 +42,12 @@ def create_plane():
 def delete_plane():
     db.session.delete(plane)
     db.session.commit()
+    return redirect('/')
+
+@app.route('/jets', methods=['GET'])
+def show_planes():
+    planes = Plane.query.all()
+    return render_template('planes.html', planes = planes)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,9 +1,25 @@
-<form class="" action="/jets/add" method="post">
-  <label for="title">Title</label>
-  <input type="text" name="title" value="" placeholder="Enter title here">
-  <label for="body">Summary</label>
-  <input type="text" name="body" value="" placeholder="Enter summary here">
-  <label for="image_url">Image Url</label>
-  <input type="text" name="image_url" value="" placeholder="Paste image url here">
-  <input type="submit" value="Create">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}"
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+    <title>Plane Listing App</title>
+  </head>
+  <body>
+    <h2 class="centered">Add Plane</h2>
+    <div class="container">
+      <div class="row">
+      <form class="" action="/jets/add" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title" value="" placeholder="Enter title here">
+        <label for="body">Summary</label>
+        <input type="text" name="body" value="" placeholder="Enter summary here">
+        <label for="image_url">Image Url</label>
+        <input type="text" name="image_url" value="" placeholder="Paste image url here">
+        <input type="submit" value="Create">
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
