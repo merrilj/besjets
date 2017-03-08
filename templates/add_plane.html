@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+    <script src="../static/js/main.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -33,7 +38,9 @@
           <textarea class="form-control" name="body" id="body" placeholder="Enter aircraft description here"rows="3"></textarea></div>
           <div class="pad"><label for="image_url">Aircraft Image</label>
           <input type="text" name="image_url" class="form-control" id="image_url" placeholder="Paste image URL here"></div>
-          <div class="pad"><input type="submit" value="Add Plane" class="btn btn-info"></div>
+          <div class="pad"><input type="submit" value="Add Plane" class="btn validate btn-success">
+          <a href="/jets" id="all-planes" class="btn btn-info">All Planes</a>
+          </div>
         </div>
       </form>
     </div>

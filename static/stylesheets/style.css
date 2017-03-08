@@ -8,10 +8,24 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
+#jet-title {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
 #add-btn {
   display: flex;
   justify-content: center;
   padding-bottom: 3em;
+}
+
+#get-started {
+  color: grey;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 1.5em;
+}
+
+.font {
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 #form-wrapper {
@@ -23,6 +37,7 @@ body {
 .form-width {
   width: 60rem;
   margin: auto;
+  margin-top: 2rem;
 }
 
 #home-grid {
@@ -49,9 +64,16 @@ body {
   justify-content: flex-end;
 }
 
+#all-planes {
+  float: right;
+}
+
 .form-header {
   text-align: center;
-  color: white;
+  color: #4682B4;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2.7rem;
 }
 
 .form-text {
