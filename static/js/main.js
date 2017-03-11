@@ -10,9 +10,9 @@ $(document).ready(function(){
   $textarea.on('keyup', checkStatus);
 
 
-function checkStatus() {
+  function checkStatus() {
     var status = ($.trim($text.val()) === '' || $.trim($textarea.val()) === '');
     $submit.prop('disabled', status);
-}
+  }
 
 })
