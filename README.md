@@ -1,5 +1,4 @@
-# MJ Parking Lot
-[Link to App]()
+# Besjets
 ###Basic CRUD app built in-a-day where you can view, add, edit, or delete aircraft
 ####Technologies Used
   - Python
@@ -13,5 +12,5 @@
   - JavaScript
 
 
-  ![alt tag](./static/stylesheets/images/landing-page.png)
-  ![alt tag](./static/stylesheets/images/all-planes.png)
+  ![alt tag](./static/stylesheets/images/besjets-home.png)
+  ![alt tag](./static/stylesheets/images/besjets.png)
