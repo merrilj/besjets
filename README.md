@@ -1,6 +1,9 @@
 # Besjets
-###Basic CRUD app built in-a-day where you can view, add, edit, or delete aircraft
-####Technologies Used
+
+##Description
+Besjets is a basic CRUD app built in-a-day where you can view, add, edit, or delete aircraft.
+
+##Technologies
   - Python
   - Flask
   - HTML
